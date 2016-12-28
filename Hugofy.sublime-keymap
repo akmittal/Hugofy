@@ -4,6 +4,8 @@
     <binding key="ctrl+alt+3" command="hugogetthemes"/>
     <binding key="ctrl+alt+4" command="hugosettheme"/>
     <binding key="ctrl+alt+5" command="hugobuild"/>
-    <binding key="ctrl+alt+6" command="hugoserver"/>
-    <binding key="ctrl+alt+7" command="hugoversion"/>
+    <binding key="ctrl+alt+6" command="hugoserverstart"/>
+    <binding key="ctrl+alt+7" command="hugoserverstart"/>
+    <binding key="ctrl+alt+8" command="hugoversion"/>
+    <binding key="ctrl+alt+9" command="hugodeploy"/>
 </bindings>

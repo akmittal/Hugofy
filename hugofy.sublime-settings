@@ -10,5 +10,8 @@
 		"PORT": 8000 //server port number
 	},
 	//website name
-	"Sitename": "MyFirstsite"  
+	"Sitename": "MyFirstsite",
+	//repository
+	//e.g. git@github.com:pyonk/blog.git
+	"Repository": ""
 }
