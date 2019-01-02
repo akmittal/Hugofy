@@ -16,6 +16,40 @@ def setvars():
     global settings, path, sitename
     settings = sublime.load_settings("hugofy.sublime-settings")
     path = sublime.active_window().folders()[0]
+    if settings.get("DIR_PATH"):
+        path = settings.get("DIR_PATH")
+
+
+class HugonewsiteCommand(sublime_plugin.TextCommand):
+    def on_done(self, content):
+        self.inputs.append(content)
+        if len(self.inputs) < 2:
+            self.get_site_name()
+        else:
+            self.input_done()
+
+    def input_done(self):
+        process = ["hugo", "new", "site", os.path.join(self.inputs[0], self.inputs[1])]
+        # subprocess.Popen(process)
+        print(process)
+
+    def on_cancel(self):
+        return
+
+    def get_dir_path(self):
+        sublime.active_window().show_input_panel(
+            "Enter directory path", "", self.on_done, None, self.on_cancel
+        )
+
+    def get_site_name(self):
+        sublime.active_window().show_input_panel(
+            "Enter site name", "", self.on_done, None, self.on_cancel
+        )
+
+    def run(self, edit):
+        setvars()
+        self.inputs = []
+        self.get_dir_path()
 
 
 class HugonewcontentCommand(sublime_plugin.TextCommand):
@@ -62,6 +96,10 @@ class HugoserverCommand(sublime_plugin.TextCommand):
         if settings.get("DRAFTS_FLAG"):
             start_cmd = start_cmd + ["--buildDrafts"]
 
+        theme = settings.get("THEME_NAME")
+        if theme:
+            start_cmd = start_cmd + ["--theme={}".format(theme)]
+
         start_cmd = start_cmd + ["--watch", "--port=%s" % port]
 
         try:
@@ -104,5 +142,28 @@ class HugogetthemesCommand(sublime_plugin.TextCommand):
                 stderr=subprocess.STDOUT,
                 universal_newlines=True,
             )
-        except:
-            sublime.error_message("git not installed or path not set")
+        except Exception as e:
+            sublime.error_message(
+                "git not installed or path not set, message: {}".format(e)
+            )
+
+
+class HugosetthemeCommand(sublime_plugin.TextCommand):
+    def on_done(self, theme_name):
+        if not theme_name:
+            sublime.error_message("No theme name provided")
+        else:
+            settings.set("THEME_NAME", theme_name)
+            sublime.save_settings("hugofy.sublime-settings")
+
+    def on_change(self, theme_name):
+        pass
+
+    def on_cancel(self):
+        pass
+
+    def run(self, edit):
+        setvars()
+        sublime.active_window().show_input_panel(
+            "Enter theme name", "", self.on_done, self.on_change, self.on_cancel
+        )

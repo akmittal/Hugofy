@@ -1,4 +1,15 @@
 {
-	"PORT": 8000, //server port number
-	"DRAFTS_FLAG": true, //use `--buildDrafts` flag
+    // server port number
+	"PORT": 8000,
+    // use `--buildDrafts` flag
+	"DRAFTS_FLAG": true,
+
+    // OPTIONAL FIELDS:
+
+    // if THEME_NAME is present, then we will build using that theme,
+    // "THEME_NAME": "",
+
+    // if DIR_PATH is present, then we start Hugo there
+    // default to the open directory in your sublime window
+    // "DIR_PATH": "",
 }
