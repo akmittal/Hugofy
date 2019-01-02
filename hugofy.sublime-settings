@@ -1,15 +1,4 @@
 {
-	//root directory for hugo websites use double backwork slash for windows
-	//e.g. windows C:\\Users\\myusername\\
-	//e.g. Linux/Mac /home/myusername
-	"Directory": "C:\\Users\\amitm\\OneDrive\\Documents\\Projects\\hugo\\mySite",
-	"Server":
-	{
-		"PORT": 8000, //server port number
-		"THEME_FLAG": true, //use `--theme` flag
-		"DRAFTS_FLAG": true, //use `--buildDrafts` flag
-		"THEME": "bootstrap" //theme used by `--theme` flag
-	},
-	//website name
-	"Sitename": "MyFirstsite"  
+	"PORT": 8000, //server port number
+	"DRAFTS_FLAG": true, //use `--buildDrafts` flag
 }

@@ -1,10 +1,8 @@
 [
-   
-    { "caption": "Hugofy : New Site", "command": "hugonewsite" },
+
     { "caption": "Hugofy : New Post", "command": "hugonewcontent"},
     { "caption": "Hugofy : Version", "command": "hugoversion"},
     { "caption": "Hugofy : Build", "command": "hugobuild"},
     { "caption": "Hugofy : Start Server", "command": "hugoserver"},
-    { "caption": "Hugofy : Set Theme", "command": "hugosettheme"},
     { "caption": "Hugofy : Download themes", "command": "hugogetthemes"},
 ]
