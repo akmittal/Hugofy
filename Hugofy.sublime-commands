@@ -1,5 +1,4 @@
 [
-   
     { "caption": "Hugofy : New Site", "command": "hugonewsite" },
     { "caption": "Hugofy : New Post", "command": "hugonewcontent"},
     { "caption": "Hugofy : Version", "command": "hugoversion"},
