@@ -10,7 +10,7 @@ Hugofy is a plugin for Sublime Text 3 to make life easier to use [Hugo static si
 *	Start Hugo server
 
 ## Installation
-*	Download this repo as zip and extract it in ```Prefrences > Browse Packages``` Directory
+*	Download this repo as zip and extract it in ```Preferences > Browse Packages``` Directory
 *	Use [Package control](https://packagecontrol.io/installation)
 
 
